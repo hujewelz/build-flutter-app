@@ -2,7 +2,10 @@
 
 This project is a Chat Flutter application.
 
-![](screenShots/home_screen.png)
+<div>
+<img src="screenShots/home.png" width="45%" />
+<img src="screenShots/chat.png" width="45%" />
+</div>
 
 A few resources to get you started if this is your first Flutter project:
 
