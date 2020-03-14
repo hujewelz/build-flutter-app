@@ -1,8 +1,6 @@
-import 'package:chat_app/models/message.dart';
-import 'package:chat_app/screens/chat_screen.dart';
-import 'package:chat_app/widgets/chat_cell.dart';
-import 'package:chat_app/widgets/favorite_contacts.dart';
 import 'package:flutter/material.dart';
+import 'package:chat_app/widgets/favorite_contacts.dart';
+import 'package:chat_app/widgets/recent_chat.dart';
 import 'package:chat_app/widgets/category_selector.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -46,31 +44,7 @@ class HomeScreen extends StatelessWidget {
                 child: Column(
                   children: <Widget>[
                     FavoriteContacts(),
-                    Expanded(
-                      child: Container(
-                        color: Colors.white,
-                        // padding: EdgeInsets.symmetric(vertical: 20.0),
-                        child: ListView.builder(
-                            padding: EdgeInsets.symmetric(vertical: 20.0),
-                            itemCount: chats.length,
-                            itemBuilder: (BuildContext context, int index) {
-                              final chat = chats[index];
-                              return ChatCell(
-                                chat: chat,
-                                onTap: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (_) => ChateScreen(
-                                        user: chat.sender,
-                                      ),
-                                    ),
-                                  );
-                                },
-                              );
-                            }),
-                      ),
-                    ),
+                    RecentChat(),
                   ],
                 ),
               ),
