@@ -86,10 +86,17 @@ final List<Message> chats = [
 List<Message> messages = [
   Message(
     sender: elizabeth,
+    time: '5:50 PM',
+    text: "I can't wait to see you!!! 🥰😘",
+    isLiked: true,
+    unread: false,
+  ),
+  Message(
+    sender: elizabeth,
     time: '5:30 PM',
     text: 'Hey, how\'s it going? What did you do today?',
     isLiked: true,
-    unread: true,
+    unread: false,
   ),
   Message(
     sender: currentUser,
@@ -115,5 +122,6 @@ List<Message> messages = [
     sender: elizabeth,
     time: '2:00 PM',
     text: 'I ate so much food today.',
+    isLiked: true,
   ),
 ];
