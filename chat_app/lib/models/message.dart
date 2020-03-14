@@ -4,14 +4,14 @@ class Message {
   final User sender;
   final String time;
   final String text;
-  final bool usLiked;
+  final bool isLiked;
   final bool unread;
 
   Message({
     this.sender,
     this.time,
     this.text,
-    this.usLiked = false,
+    this.isLiked = false,
     this.unread = true,
   });
 }
@@ -53,32 +53,67 @@ final elizabeth = User(
 // Favorite contacts
 List<User> favorites = [grey, elizabeth, james, jake, john];
 
-final List<Message> messages = [
+final List<Message> chats = [
   Message(
     sender: elizabeth,
     time: '5:30PM',
-    text: 'Hi, How are you',
+    text: 'Hey, how\'s it going? What did you do today?',
   ),
   Message(
     sender: grey,
     time: '4:20PM',
-    text: 'Hi, How are you, I come ddd djfkdjffk',
+    text: 'Hey, how\'s it going? What did you do today?',
   ),
   Message(
     sender: john,
     time: '2:12PM',
-    text: 'Hi, How are you, djsflldfjls',
+    text: 'Hey, how\'s it going? What did you do today?',
   ),
   Message(
     sender: jake,
     time: '10:00AM',
-    text: 'Hi, How are you, djf jdk djkd jdkf',
+    text: 'Hey, how\'s it going? What did you do today?',
     unread: false,
   ),
   Message(
     sender: james,
     time: '8:50AM',
-    text: 'Hi, How are you',
+    text: 'Hey, how\'s it going? What did you do today?',
     unread: false,
+  ),
+];
+
+List<Message> messages = [
+  Message(
+    sender: elizabeth,
+    time: '5:30 PM',
+    text: 'Hey, how\'s it going? What did you do today?',
+    isLiked: true,
+    unread: true,
+  ),
+  Message(
+    sender: currentUser,
+    time: '4:30 PM',
+    text: 'Just walked my doge. She was super duper cute. The best pupper!!',
+  ),
+  Message(
+    sender: elizabeth,
+    time: '3:45 PM',
+    text: 'How\'s the doggo?',
+  ),
+  Message(
+    sender: elizabeth,
+    time: '3:15 PM',
+    text: 'All the food',
+  ),
+  Message(
+    sender: currentUser,
+    time: '2:30 PM',
+    text: 'Nice! What kind of food did you eat?',
+  ),
+  Message(
+    sender: elizabeth,
+    time: '2:00 PM',
+    text: 'I ate so much food today.',
   ),
 ];
