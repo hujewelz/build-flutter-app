@@ -1,5 +1,6 @@
-import 'package:chat_app/models/message.dart';
 import 'package:flutter/material.dart';
+import 'package:chat_app/models/message.dart';
+import 'package:chat_app/screens/chat_screen.dart';
 
 class FavoriteContacts extends StatelessWidget {
   const FavoriteContacts({Key key}) : super(key: key);
@@ -34,28 +35,42 @@ class FavoriteContacts extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             itemCount: favorites.length,
             itemBuilder: (BuildContext context, int index) {
-              return Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Column(
-                  children: <Widget>[
-                    CircleAvatar(
-                      radius: 35.0,
-                      backgroundImage: AssetImage(favorites[index].avatar),
-                    ),
-                    SizedBox(
-                      height: 8.0,
-                    ),
-                    Text(
-                      favorites[index].name,
-                      style: TextStyle(color: Colors.blueGrey),
-                    )
-                  ],
-                ),
-              );
+              return _buildUser(index, context);
             },
           ),
         )
       ]),
+    );
+  }
+
+  Widget _buildUser(int index, BuildContext context) {
+    return GestureDetector(
+      onTap: () => Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (_) => ChateScreen(
+            user: favorites[index],
+          ),
+        ),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Column(
+          children: <Widget>[
+            CircleAvatar(
+              radius: 35.0,
+              backgroundImage: AssetImage(favorites[index].avatar),
+            ),
+            SizedBox(
+              height: 8.0,
+            ),
+            Text(
+              favorites[index].name,
+              style: TextStyle(color: Colors.blueGrey),
+            )
+          ],
+        ),
+      ),
     );
   }
 }
