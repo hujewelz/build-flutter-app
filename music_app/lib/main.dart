@@ -63,6 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   SizedBox(
                     height: 370,
                     child: ListView(
+                      padding: EdgeInsets.symmetric(horizontal: 10.0),
                       scrollDirection: Axis.horizontal,
                       children: <Widget>[
                         _buildForYou(),
@@ -84,9 +85,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   Container(
                     height: 154,
-                    // padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 16.0),
-                    // height: 154.0,
                     child: ListView(
+                      padding: EdgeInsets.symmetric(horizontal: 10.0),
                       scrollDirection: Axis.horizontal,
                       children: <Widget>[
                         _buildRecommended(),
@@ -178,9 +178,9 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Widget _buildRecommended({bool isFirst = false}) {
+  Widget _buildRecommended() {
     return Container(
-      padding: EdgeInsets.all(isFirst ? 16.0 : 4.0),
+      padding: EdgeInsets.all(4.0),
       child: SizedBox(
         width: 154.0,
         height: 154.0,
