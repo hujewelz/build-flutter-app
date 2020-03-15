@@ -110,6 +110,7 @@ class _ChateScreenState extends State<ChateScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Theme.of(context).primaryColor,
         title: Text(
