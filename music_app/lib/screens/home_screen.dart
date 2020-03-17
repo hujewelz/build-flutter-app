@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:music_app/models/artist.dart';
+import 'package:music_app/models/playlist.dart';
 import 'package:music_app/models/song.dart';
 import 'package:music_app/widgets/play_item.dart';
 
@@ -53,11 +54,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: ListView(
                       padding: EdgeInsets.symmetric(horizontal: 10.0),
                       scrollDirection: Axis.horizontal,
-                      children: <Widget>[
-                        _buildForYou(),
-                        _buildForYou(),
-                        _buildForYou(),
-                      ],
+                      children:
+                          playLists.map((e) => _buildMadeForYou(e)).toList(),
                     ),
                   ),
                   _buildTitle('Recommended'),
@@ -82,7 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget _buildTitle(String title) {
     return Padding(
       padding:
-          EdgeInsets.only(left: 16.0, right: 16.0, top: 20.0, bottom: 10.0),
+          EdgeInsets.only(left: 16.0, right: 16.0, top: 16.0, bottom: 10.0),
       child: Text(
         title,
         style: TextStyle(
@@ -93,8 +91,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget _buildTopBar() {
     return Container(
-      margin: EdgeInsets.only(top: 10.0),
-      // height: 80.0,
+      padding: EdgeInsets.symmetric(vertical: 16.0),
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         padding: EdgeInsets.symmetric(horizontal: 16.0),
@@ -111,8 +108,8 @@ class _MyHomePageState extends State<MyHomePage> {
         height: 70,
         decoration: BoxDecoration(
           border: Border.all(
-            color: Colors.white,
-            width: 2.0,
+            color: Theme.of(context).accentColor,
+            width: 3.0,
           ),
           borderRadius: BorderRadius.circular(35),
           image: DecorationImage(
@@ -124,7 +121,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Widget _buildForYou() {
+  Widget _buildMadeForYou(Playlist playlist) {
     return Padding(
       padding: const EdgeInsets.all(7.0),
       child: SizedBox(
@@ -134,7 +131,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ClipRRect(
             borderRadius: BorderRadius.circular(30.0),
             child: Image.asset(
-              'assets/images/a.png',
+              playlist.thumbnail,
               height: 370.0,
               fit: BoxFit.cover,
             ),
@@ -143,7 +140,7 @@ class _MyHomePageState extends State<MyHomePage> {
             left: 20.0,
             bottom: 20.0,
             child: Text(
-              'DAaaa',
+              playlist.name,
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 26.0,
