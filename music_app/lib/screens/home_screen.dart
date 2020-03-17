@@ -94,31 +94,30 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget _buildTopBar() {
     return Container(
       margin: EdgeInsets.only(top: 10.0),
-      height: 80.0,
-      child: ListView(
-        padding: EdgeInsets.symmetric(horizontal: 12.0),
+      // height: 80.0,
+      child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
-        children: artists.map((e) => _buildAvatar(e)).toList(),
+        padding: EdgeInsets.symmetric(horizontal: 16.0),
+        child: Row(children: artists.map((e) => _buildAvatar(e)).toList()),
       ),
     );
   }
 
   Widget _buildAvatar(Artist artist) {
     return Padding(
-      padding: const EdgeInsets.all(5.0),
-      child: SizedBox(
-        width: 70.0,
-        height: 70.0,
-        child: DecoratedBox(
-          decoration: BoxDecoration(
-            color: Colors.red,
-            borderRadius: BorderRadius.circular(35.0),
+      padding: const EdgeInsets.only(right: 10.0),
+      child: Container(
+        width: 70,
+        height: 70,
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: Colors.white,
+            width: 2.0,
           ),
-          child: Center(
-            child: CircleAvatar(
-              radius: 32,
-              backgroundImage: AssetImage(artist.avatar),
-            ),
+          borderRadius: BorderRadius.circular(35),
+          image: DecorationImage(
+            image: AssetImage(artist.avatar),
+            fit: BoxFit.cover,
           ),
         ),
       ),
