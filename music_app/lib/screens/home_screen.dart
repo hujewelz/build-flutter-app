@@ -175,10 +175,10 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ],
       type: BottomNavigationBarType.fixed,
-      elevation: 0.0,
+      // elevation: 0.0,
       iconSize: 28.0,
-      backgroundColor: Colors.red,
-      selectedItemColor: Theme.of(context).primaryColor,
+      backgroundColor: Theme.of(context).primaryColor,
+      selectedItemColor: Theme.of(context).accentColor,
       unselectedItemColor: Colors.white,
       onTap: _onItemTapped,
     );
