@@ -13,7 +13,7 @@ class PlayItem extends StatelessWidget {
       onTap: () => Navigator.of(context).push(MaterialPageRoute(
         builder: (_) => PlayerScreen(
           song: song,
-          initialOffsetY: MediaQuery.of(context).size.height - 250,
+          initialOffsetY: MediaQuery.of(context).size.height * 0.7,
         ),
       )),
       child: Column(
