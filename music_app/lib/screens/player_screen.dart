@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:music_app/models/song.dart';
 import 'package:music_app/widgets/lyrics.dart';
@@ -29,42 +31,53 @@ class PlayerScreen extends StatelessWidget {
           )
         ],
       ),
-      body: Stack(
-        children: <Widget>[
-          Container(
-            width: double.infinity,
-            padding: EdgeInsets.only(top: 40.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                _buildThumbnal(),
-                PlaybackProgress(progress: 0.2),
-              ],
+      body: Container(
+        child: Stack(
+          fit: StackFit.expand,
+          children: <Widget>[
+            Container(
+              width: double.infinity,
+              padding: EdgeInsets.only(top: 40.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  _buildThumbnal(),
+                  PlaybackProgress(progress: 0.2),
+                ],
+              ),
             ),
-          ),
-          Positioned(
-            top: MediaQuery.of(context).size.height - 300.0,
-            child: Lyrics(),
-          ),
-          Positioned(
-            bottom: 0,
-            child: Container(
-              height: 150.0,
-              width: 500.0,
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [
-                    Colors.white.withOpacity(0.3),
-                    Colors.red,
-                  ],
-                  stops: [0, 1],
+            Positioned(
+              top: MediaQuery.of(context).size.height - 300.0,
+              child: Lyrics(),
+            ),
+            Positioned(
+              bottom: 0.0,
+              child: ClipRect(
+                child: BackdropFilter(
+                  filter: ImageFilter.blur(
+                    sigmaX: 0.0,
+                    sigmaY: .0,
+                  ),
+                  child: Container(
+                    height: 180.0,
+                    width: 500.0,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [
+                          Theme.of(context).accentColor.withOpacity(0.0),
+                          Theme.of(context).accentColor
+                        ],
+                        stops: [0, 0.6],
+                      ),
+                    ),
+                  ),
                 ),
               ),
             ),
-          )
-        ],
+          ],
+        ),
       ),
     );
   }

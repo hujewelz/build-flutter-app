@@ -38,11 +38,24 @@ class _LyricsState extends State<Lyrics> {
                 width: double.infinity,
                 padding: EdgeInsets.all(20.0),
                 child: SingleChildScrollView(
-                  child: Text(
-                    "Yeah, breakfast at Tiffany's and bottles of bubbles",
+                  child: Text.rich(
+                    TextSpan(
+                      text:
+                          "Yeah, breakfast at Tiffany's and bottles of bubbles\n",
+                      style: TextStyle(color: Colors.white),
+                      children: [
+                        TextSpan(
+                          text:
+                              "Yeah, breakfast at Tiffany's and bottles of bubbles" *
+                                  10,
+                          style: TextStyle(color: Colors.black),
+                        ),
+                      ],
+                    ),
                     style: TextStyle(
                       fontSize: 18.0,
-                      fontWeight: FontWeight.w500,
+                      fontWeight: FontWeight.bold,
+                      height: 1.5,
                     ),
                   ),
                 ),
