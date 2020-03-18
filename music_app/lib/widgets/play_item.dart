@@ -11,7 +11,10 @@ class PlayItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => Navigator.of(context).push(MaterialPageRoute(
-        builder: (_) => PlayerScreen(song: song),
+        builder: (_) => PlayerScreen(
+          song: song,
+          initialOffsetY: MediaQuery.of(context).size.height - 250,
+        ),
       )),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

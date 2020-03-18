@@ -1,7 +1,11 @@
+import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:music_app/models/song.dart';
 
 class Lyrics extends StatefulWidget {
-  Lyrics({Key key}) : super(key: key);
+  Lyrics({Key key, this.song}) : super(key: key);
+
+  final Song song;
 
   @override
   _LyricsState createState() => _LyricsState();
@@ -12,57 +16,80 @@ class _LyricsState extends State<Lyrics> {
   Widget build(BuildContext context) {
     return SafeArea(
       bottom: false,
-      child: Container(
-        height: double.infinity,
-        width: double.infinity,
-        decoration: BoxDecoration(
-          color: Theme.of(context).accentColor,
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(26.0),
-            topRight: Radius.circular(26.0),
-          ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(30.0),
+          topRight: Radius.circular(30.0),
         ),
-        child: Column(
-          children: <Widget>[
-            Container(
-              margin: EdgeInsets.symmetric(vertical: 10.0),
-              height: 4.0,
-              width: 44.0,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(2.0),
+        child: Container(
+          color: Colors.red.withOpacity(0.6),
+          child: Stack(
+            fit: StackFit.expand,
+            children: <Widget>[
+              Image.asset(
+                widget.song.thumbnal,
+                fit: BoxFit.cover,
               ),
-            ),
-            Expanded(
-              child: Container(
-                width: double.infinity,
-                padding: EdgeInsets.all(20.0),
-                child: SingleChildScrollView(
-                  child: Text.rich(
-                    TextSpan(
-                      text:
-                          "Yeah, breakfast at Tiffany's and bottles of bubbles\n",
-                      style: TextStyle(color: Colors.white),
-                      children: [
-                        TextSpan(
-                          text:
-                              "Yeah, breakfast at Tiffany's and bottles of bubbles" *
-                                  10,
-                          style: TextStyle(color: Colors.black),
-                        ),
-                      ],
-                    ),
-                    style: TextStyle(
-                      fontSize: 18.0,
-                      fontWeight: FontWeight.bold,
-                      height: 1.5,
-                    ),
+              Positioned.fill(
+                child: BackdropFilter(
+                  filter: ImageFilter.blur(
+                    sigmaX: 40.0,
+                    sigmaY: 40.0,
+                  ),
+                  child: Container(
+                    child: _buildContent(),
                   ),
                 ),
               ),
-            )
-          ],
+            ],
+          ),
         ),
+      ),
+    );
+  }
+
+  Widget _buildContent() {
+    return Column(
+      children: <Widget>[
+        Container(
+          margin: EdgeInsets.symmetric(vertical: 10.0),
+          height: 4.0,
+          width: 44.0,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(2.0),
+          ),
+        ),
+        Expanded(
+          child: Container(
+            width: double.infinity,
+            padding: EdgeInsets.all(20.0),
+            child: _buildLyric(),
+            // SingleChildScrollView(
+            //   child: _buildLyric(),
+            // ),
+          ),
+        )
+      ],
+    );
+  }
+
+  Text _buildLyric() {
+    return Text.rich(
+      TextSpan(
+        text: "Yeah, breakfast at Tiffany's and bottles of bubbles\n",
+        style: TextStyle(color: Colors.white),
+        children: [
+          TextSpan(
+            text: "Yeah, breakfast at Tiffany's and bottles of bubbles" * 10,
+            style: TextStyle(color: Colors.black),
+          ),
+        ],
+      ),
+      style: TextStyle(
+        fontSize: 18.0,
+        fontWeight: FontWeight.w600,
+        height: 1.5,
       ),
     );
   }

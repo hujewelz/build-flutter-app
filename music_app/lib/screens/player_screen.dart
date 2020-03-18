@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
@@ -5,17 +6,53 @@ import 'package:music_app/models/song.dart';
 import 'package:music_app/widgets/lyrics.dart';
 import 'package:music_app/widgets/playback_progress.dart';
 
-class PlayerScreen extends StatelessWidget {
-  const PlayerScreen({Key key, @required this.song}) : super(key: key);
+class PlayerScreen extends StatefulWidget {
+  const PlayerScreen({Key key, @required this.song, this.initialOffsetY = 100})
+      : super(key: key);
 
   final Song song;
+  final double initialOffsetY;
+
+  @override
+  _PlayerScreenState createState() => _PlayerScreenState();
+}
+
+class _PlayerScreenState extends State<PlayerScreen>
+    with SingleTickerProviderStateMixin {
+  double _transformY = 10;
+  Animation<double> _animation;
+  AnimationController _controller;
+  bool _shouldAnimated = false;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _transformY = widget.initialOffsetY;
+
+    _controller = AnimationController(
+      duration: Duration(milliseconds: 200),
+      vsync: this,
+    );
+    _animation = CurvedAnimation(parent: _controller, curve: Curves.bounceOut);
+    _animation = Tween<double>(
+      begin: _transformY,
+      end: _transformY,
+    ).animate(_animation);
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
       appBar: AppBar(
-        title: Text(song.name),
+        title: Text(widget.song.name),
         elevation: 0.0,
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios),
@@ -33,7 +70,6 @@ class PlayerScreen extends StatelessWidget {
       ),
       body: Container(
         child: Stack(
-          fit: StackFit.expand,
           children: <Widget>[
             Container(
               width: double.infinity,
@@ -46,10 +82,14 @@ class PlayerScreen extends StatelessWidget {
                 ],
               ),
             ),
-            Positioned(
-              top: MediaQuery.of(context).size.height - 300.0,
-              child: Lyrics(),
-            ),
+            _shouldAnimated
+                ? AnimatedBuilder(
+                    animation: _animation,
+                    builder: (BuildContext context, Widget child) {
+                      return _buildAnimatedLyrics();
+                    },
+                  )
+                : _buildAnimatedLyrics(),
             Positioned(
               bottom: 0.0,
               child: ClipRect(
@@ -59,17 +99,17 @@ class PlayerScreen extends StatelessWidget {
                     sigmaY: .0,
                   ),
                   child: Container(
-                    height: 180.0,
+                    height: 100.0,
                     width: 500.0,
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
                         colors: [
-                          Theme.of(context).accentColor.withOpacity(0.0),
-                          Theme.of(context).accentColor
+                          Colors.black.withOpacity(0.0),
+                          Colors.black.withOpacity(0.6),
                         ],
-                        stops: [0, 0.6],
+                        stops: [0, 0.9],
                       ),
                     ),
                   ),
@@ -82,6 +122,48 @@ class PlayerScreen extends StatelessWidget {
     );
   }
 
+  Positioned _buildAnimatedLyrics() {
+    return Positioned.fill(
+      top: _shouldAnimated ? _animation.value : _transformY,
+      child: GestureDetector(
+        child: Lyrics(song: widget.song),
+        onVerticalDragStart: (_) {
+          _shouldAnimated = false;
+        },
+        onVerticalDragUpdate: (DragUpdateDetails details) {
+          double y = _transformY;
+          y += details.delta.dy;
+          y = min(max(y, 0), widget.initialOffsetY);
+          setState(() {
+            _transformY = y;
+          });
+        },
+        onVerticalDragEnd: (DragEndDetails details) {
+          // print('onVerticalDragEnd: ${details.velocity}');
+          double end = widget.initialOffsetY;
+          if (_transformY <= end * 0.5) {
+            end = 0;
+          }
+
+          setState(() {
+            _shouldAnimated = true;
+            _animation = CurvedAnimation(
+              parent: _controller,
+              curve: Curves.bounceOut,
+            );
+            _animation = Tween<double>(
+              begin: _transformY,
+              end: end,
+            ).animate(_animation);
+            // print('animated value: $_animation.value');
+            _transformY = end;
+            _controller.forward();
+          });
+        },
+      ),
+    );
+  }
+
   Widget _buildThumbnal() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -89,7 +171,7 @@ class PlayerScreen extends StatelessWidget {
         ClipRRect(
           borderRadius: BorderRadius.all(Radius.circular(30.0)),
           child: Image.asset(
-            song.thumbnal,
+            widget.song.thumbnal,
             width: 250.0,
             height: 250.0,
             fit: BoxFit.cover,
@@ -97,7 +179,7 @@ class PlayerScreen extends StatelessWidget {
         ),
         SizedBox(height: 12.0),
         Text(
-          song.name,
+          widget.song.name,
           style: TextStyle(
             color: Colors.white,
             fontSize: 24.0,
@@ -106,7 +188,7 @@ class PlayerScreen extends StatelessWidget {
         ),
         SizedBox(height: 6.0),
         Text(
-          song.artist.name,
+          widget.song.artist.name,
           style: TextStyle(
             color: Colors.white,
             fontSize: 16.0,

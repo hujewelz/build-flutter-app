@@ -4,13 +4,17 @@ import 'package:flutter/material.dart';
 class PlaybackProgress extends StatefulWidget {
   PlaybackProgress({Key key, this.progress}) : super(key: key);
 
-  double progress;
+  final double progress;
 
   @override
-  _PlaybackProgressState createState() => _PlaybackProgressState();
+  _PlaybackProgressState createState() => _PlaybackProgressState(progress);
 }
 
 class _PlaybackProgressState extends State<PlaybackProgress> {
+  _PlaybackProgressState(this._progress);
+
+  double _progress;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -22,12 +26,12 @@ class _PlaybackProgressState extends State<PlaybackProgress> {
           CupertinoSlider(
             thumbColor: Colors.white,
             activeColor: Theme.of(context).accentColor,
-            value: widget.progress,
+            value: _progress,
             min: 0,
             max: 10,
             onChanged: (value) {
               setState(() {
-                widget.progress = value;
+                _progress = value;
               });
             },
           ),
