@@ -146,18 +146,18 @@ class _PlayerScreenState extends State<PlayerScreen>
           }
 
           setState(() {
-            _shouldAnimated = true;
-            _animation = CurvedAnimation(
-              parent: _controller,
-              curve: Curves.bounceOut,
-            );
-            _animation = Tween<double>(
-              begin: _transformY,
-              end: end,
-            ).animate(_animation);
+            // _shouldAnimated = true;
+            // _animation = CurvedAnimation(
+            //   parent: _controller,
+            //   curve: Curves.bounceOut,
+            // );
+            // _animation = Tween<double>(
+            //   begin: _transformY,
+            //   end: end,
+            // ).animate(_animation);
             // print('animated value: $_animation.value');
             _transformY = end;
-            _controller.forward();
+            // _controller.forward();
           });
         },
       ),
