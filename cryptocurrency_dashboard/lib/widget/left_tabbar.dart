@@ -7,12 +7,8 @@ class LeftTabBar extends StatefulWidget {
   _LeftTabBarState createState() => _LeftTabBarState();
 }
 
-class _LeftTabBarState extends State<LeftTabBar>
-    with SingleTickerProviderStateMixin {
+class _LeftTabBarState extends State<LeftTabBar> {
   int _activedIndex = 0;
-
-  AnimationController _controller;
-  Animation<double> _animation;
 
   List<IconData> icons = [
     Icons.home,
@@ -23,53 +19,35 @@ class _LeftTabBarState extends State<LeftTabBar>
   ];
 
   @override
-  void initState() {
-    super.initState();
-
-    _controller =
-        AnimationController(duration: Duration(seconds: 1), vsync: this);
-    _animation =
-        CurvedAnimation(curve: Curves.bounceInOut, parent: _controller);
-    _animation = Tween<double>(begin: 0, end: 1).animate(_animation);
-
-    _controller.forward();
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    print(_animation);
     return Container(
-      // color: Colors.redAccent,
+      width: 113,
       child: Stack(
         children: <Widget>[
-          AnimatedBuilder(
-            animation: _controller,
-            builder: (BuildContext context, Widget child) {
-              return Positioned(
-                top:
-                    (10.0 + (_activedIndex * 78).toDouble()) * _animation.value,
-                right: 0,
-                child: Container(
-                  width: 3.0,
-                  height: 64.0,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(1.5),
-                    color: Color(0xFF4D2FE0),
-                  ),
-                ),
-              );
-            },
+          AnimatedPositioned(
+            duration: Duration(milliseconds: 250),
+            curve: Curves.fastOutSlowIn,
+            top: 9.0 + (_activedIndex * 68.0).toDouble(),
+            right: 0,
+            child: Container(
+              width: 3.0,
+              height: 54.0,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(1.5),
+                color: Color(0xFF4D2FE0),
+              ),
+            ),
           ),
-          Column(
-            children: icons
-                .map((e) => _buildTabItem(context, icons.indexOf(e)))
-                .toList(),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: icons
+                    .map((e) => _buildTabItem(context, icons.indexOf(e)))
+                    .toList(),
+              ),
+            ],
           ),
         ],
       ),
@@ -78,7 +56,7 @@ class _LeftTabBarState extends State<LeftTabBar>
 
   Widget _buildTabItem(BuildContext context, int index) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 9.0),
+      padding: const EdgeInsets.symmetric(vertical: 9.0),
       child: Container(
         width: 50.0,
         height: 50.0,
@@ -100,7 +78,6 @@ class _LeftTabBarState extends State<LeftTabBar>
           onPressed: () {
             setState(() {
               _activedIndex = index;
-              _controller.forward().orCancel;
             });
           },
         ),

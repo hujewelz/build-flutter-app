@@ -7,9 +7,28 @@ class LeftPannel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Container(
-        width: 110.0,
-        child: Padding(
+      width: 113.0,
+      child: Stack(
+        children: <Widget>[
+          _buildMenus(context),
+          Positioned(
+            right: 3,
+            child: Container(
+              width: 1,
+              height: MediaQuery.of(context).size.height,
+              color: Theme.of(context).iconTheme.color.withOpacity(0.4),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Stack _buildMenus(BuildContext context) {
+    return Stack(
+      fit: StackFit.expand,
+      children: <Widget>[
+        Padding(
           padding: const EdgeInsets.symmetric(vertical: 30),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -24,8 +43,6 @@ class LeftPannel extends StatelessWidget {
                   fit: BoxFit.cover,
                 ),
               ),
-              LeftTabBar(),
-              SizedBox(height: 100.0),
               Container(
                 width: 50.0,
                 height: 50.0,
@@ -44,7 +61,11 @@ class LeftPannel extends StatelessWidget {
             ],
           ),
         ),
-      ),
+        Positioned(
+          top: 130.0,
+          child: LeftTabBar(),
+        ),
+      ],
     );
   }
 }

@@ -14,18 +14,13 @@ class HomeScreen extends StatelessWidget {
         child: Row(
           children: <Widget>[
             LeftPannel(),
-            Container(
-              width: 1,
-              color: Theme.of(context).iconTheme.color.withOpacity(0.4),
-            ),
             Expanded(
               child: Container(
                 height: double.infinity,
-                // color: Colors.blueGrey,
                 child: Column(
                   children: <Widget>[
                     TopBar(),
-                    Dashboard(),
+                    // Dashboard(),
                   ],
                 ),
               ),
