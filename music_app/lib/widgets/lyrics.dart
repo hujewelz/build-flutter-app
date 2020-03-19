@@ -77,11 +77,11 @@ class _LyricsState extends State<Lyrics> {
   Text _buildLyric() {
     return Text.rich(
       TextSpan(
-        text: "Yeah, breakfast at Tiffany's and bottles of bubbles\n",
+        text: widget.song.lyrics.substring(0, 40),
         style: TextStyle(color: Colors.white),
         children: [
           TextSpan(
-            text: "Yeah, breakfast at Tiffany's and bottles of bubbles" * 10,
+            text: widget.song.lyrics,
             style: TextStyle(color: Colors.black),
           ),
         ],
