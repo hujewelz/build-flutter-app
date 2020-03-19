@@ -2,6 +2,7 @@ import 'dart:math';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:music_app/models/playback_bar.dart';
 import 'package:music_app/models/song.dart';
 import 'package:music_app/widgets/lyrics.dart';
 import 'package:music_app/widgets/playback_progress.dart';
@@ -78,7 +79,8 @@ class _PlayerScreenState extends State<PlayerScreen>
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   _buildThumbnal(),
-                  PlaybackProgress(progress: 0.2),
+                  PlaybackProgress(progress: 8.2),
+                  PlaybackBar(isLike: true),
                 ],
               ),
             ),
