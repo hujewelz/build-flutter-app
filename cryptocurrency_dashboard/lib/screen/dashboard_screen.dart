@@ -1,4 +1,9 @@
+import 'package:cryptocurrency_dashboard/widget/right_panel.dart';
 import 'package:flutter/material.dart';
+import 'package:cryptocurrency_dashboard/widget/colors.dart';
+import 'package:cryptocurrency_dashboard/widget/honeymining_diagram.dart';
+import 'package:cryptocurrency_dashboard/model/coin.dart';
+import 'package:cryptocurrency_dashboard/widget/coin_cell.dart';
 
 class Dashboard extends StatelessWidget {
   const Dashboard({Key key}) : super(key: key);
@@ -6,8 +11,79 @@ class Dashboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      alignment: Alignment.center,
-      child: AnimatedBox(),
+      child: Row(
+        children: <Widget>[
+          Expanded(
+            child: Container(
+              alignment: Alignment.center,
+              padding: EdgeInsets.only(left: 46.0),
+              child: Column(
+                children: <Widget>[
+                  _buildTopTitle(),
+                  HoneyminingDiagram(),
+                  _buildBottomTitle(),
+                  _buildCryptoCoins(),
+                ],
+              ),
+            ),
+          ),
+          RightPanel(),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildTopTitle() {
+    return Row(
+      children: <Widget>[
+        Text(
+          'Honeymining Statics',
+          style: TextStyle(
+            fontSize: 24.0,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        Spacer(),
+        Text(
+          'HONEYMIER IS ON',
+          style: TextStyle(
+            fontSize: 13.0,
+            color: AppColors.greyText,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+        Switch(
+          activeColor: Colors.white,
+          activeTrackColor: AppColors.green,
+          value: true,
+          onChanged: (value) {},
+        ),
+        SizedBox(width: 78.0),
+      ],
+    );
+  }
+
+  Widget _buildBottomTitle() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 18.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          Text(
+            'Your crypto coins',
+            style: TextStyle(
+              fontSize: 20.0,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildCryptoCoins() {
+    return Column(
+      children: coins.map((e) => CoinCell(coin: e)).toList(),
     );
   }
 }

@@ -20,7 +20,11 @@ class HomeScreen extends StatelessWidget {
                 child: Column(
                   children: <Widget>[
                     TopBar(),
-                    // Dashboard(),
+                    Expanded(
+                      child: Container(
+                        child: Dashboard(),
+                      ),
+                    ),
                   ],
                 ),
               ),

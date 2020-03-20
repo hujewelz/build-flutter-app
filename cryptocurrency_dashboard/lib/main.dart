@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
       title: 'Pryptocurrency Dashboard',
       color: Color(0xFFF9F8FA),
       darkTheme: ThemeData.dark(),
-      themeMode: ThemeMode.system,
+      themeMode: ThemeMode.light,
       theme: ThemeData(
         platform: TargetPlatform.macOS,
         primaryColor: Color(0xFFF9F8FA),
