@@ -45,16 +45,31 @@ class RightPanel extends StatelessWidget {
         child: Row(
           children: <Widget>[
             SizedBox(width: 26.0),
-            Container(
-              width: 66.0,
-              height: 66.0,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(33.0),
-                border: Border.all(
-                  color: Colors.red,
-                  width: 3.0,
+            Stack(
+              children: <Widget>[
+                SizedBox(
+                  width: 66.0,
+                  height: 66.0,
+                  child: CircularProgressIndicator(
+                    backgroundColor: Color(0xFF582DE3),
+                    valueColor: AlwaysStoppedAnimation(AppColors.green),
+                    value: 0.5,
+                    strokeWidth: 4,
+                  ),
                 ),
-              ),
+                Container(
+                  width: 66.0,
+                  height: 66.0,
+                  alignment: Alignment.center,
+                  child: Text(
+                    'XP',
+                    style: TextStyle(
+                      color: AppColors.orange,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ),
+              ],
             ),
             SizedBox(width: 10.0),
             Column(
