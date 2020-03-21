@@ -24,7 +24,7 @@ class _HoneyminingDiagramState extends State<HoneyminingDiagram> {
           painter: HoneyMiningTextPainter(),
           child: Container(
             padding: EdgeInsets.all(4.0),
-            margin: EdgeInsets.symmetric(vertical: 48, horizontal: 40),
+            margin: EdgeInsets.symmetric(vertical: 40, horizontal: 40),
             child: CustomPaint(
               painter: HoneyMiningBGPainter(),
               child: CustomPaint(
@@ -55,7 +55,7 @@ class HoneyMiningTextPainter extends CustomPainter {
     _drawText(
       canvas,
       data: coinStatics[0],
-      point: Offset(points[0].dx - 50, points[0].dy),
+      point: Offset(points[0].dx - 50, points[0].dy + 6),
     );
     _drawText(
       canvas,
@@ -67,18 +67,18 @@ class HoneyMiningTextPainter extends CustomPainter {
     final dy = (size.width - size.height) / 2;
     _drawText(canvas,
         data: coinStatics[2],
-        point: Offset(points[2].dx - 10, points[2].dy - dy - 10),
+        point: Offset(points[2].dx - 28, points[2].dy - dy - 10),
         align: TextAlign.right);
     _drawText(
       canvas,
       data: coinStatics[6],
-      point: Offset(points[6].dx - 90, points[6].dy - dy - 10),
+      point: Offset(points[6].dx - 70, points[6].dy - dy - 10),
       align: TextAlign.left,
     );
 
     for (var i = 0; i < points.length; i++) {
       if (i % 2 == 0) continue;
-      final dx = i < 4 ? 10 : 90;
+      final dx = i < 4 ? 18 : 80;
       _drawText(
         canvas,
         data: coinStatics[i],

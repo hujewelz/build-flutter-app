@@ -36,6 +36,7 @@ class Dashboard extends StatelessWidget {
   Widget _buildTopTitle() {
     return Row(
       children: <Widget>[
+        
         Text(
           'Honeymining Statics',
           style: TextStyle(
@@ -49,7 +50,7 @@ class Dashboard extends StatelessWidget {
           style: TextStyle(
             fontSize: 13.0,
             color: AppColors.greyText,
-            fontWeight: FontWeight.w500,
+            fontWeight: FontWeight.w600,
           ),
         ),
         Switch(
@@ -58,7 +59,7 @@ class Dashboard extends StatelessWidget {
           value: true,
           onChanged: (value) {},
         ),
-        SizedBox(width: 78.0),
+        SizedBox(width: 60.0),
       ],
     );
   }

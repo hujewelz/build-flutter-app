@@ -148,7 +148,7 @@ class RightPanel extends StatelessWidget {
   Widget _buildActiveMine() {
     Widget buildItem({
       Color color,
-      IconData icon,
+      String icon,
       String title,
       bool isEst = false,
     }) {
@@ -170,9 +170,13 @@ class RightPanel extends StatelessWidget {
                   )
                 ],
               ),
-              child: Icon(
-                icon,
-                color: Colors.white,
+              child: Center(
+                child: Image.asset(
+                  icon,
+                  width: 22.0,
+                  height: 22.0,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
             SizedBox(width: 18.0),
@@ -227,17 +231,17 @@ class RightPanel extends StatelessWidget {
           SizedBox(height: 18.0),
           buildItem(
             color: Colors.yellow,
-            icon: Icons.computer,
+            icon: 'assets/images/gpu.png',
             title: 'GPUs mining',
           ),
           buildItem(
             color: AppColors.orange,
-            icon: Icons.battery_std,
+            icon: 'assets/images/cpu.png',
             title: 'CPUs mining',
           ),
           buildItem(
             color: AppColors.purple,
-            icon: Icons.calendar_today,
+            icon: 'assets/images/calendar_today.png',
             title: 'Est. daily USD',
             isEst: true,
           ),

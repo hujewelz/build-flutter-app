@@ -44,14 +44,14 @@ class LeftPannel extends StatelessWidget {
                 ),
               ),
               Container(
-                width: 50.0,
-                height: 50.0,
+                width: 60.0,
+                height: 60.0,
                 decoration: BoxDecoration(
                   border: Border.all(
-                    color: Theme.of(context).iconTheme.color.withOpacity(0.4),
-                    width: 0.5,
+                    color: Theme.of(context).iconTheme.color.withOpacity(0.6),
+                    width: 1,
                   ),
-                  borderRadius: BorderRadius.circular(14),
+                  borderRadius: BorderRadius.circular(20),
                 ),
                 child: IconButton(
                   icon: Icon(Icons.settings),
@@ -62,7 +62,7 @@ class LeftPannel extends StatelessWidget {
           ),
         ),
         Positioned(
-          top: 130.0,
+          top: 158.0,
           child: LeftTabBar(),
         ),
       ],
