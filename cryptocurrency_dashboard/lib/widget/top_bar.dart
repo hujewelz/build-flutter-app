@@ -26,6 +26,7 @@ class _TopBarState extends State<TopBar> {
             color: Theme.of(context).textTheme.headline1.color,
             onPressed: () {},
           ),
+          SizedBox(width: 12),
           Stack(
             children: <Widget>[
               ClipOval(
