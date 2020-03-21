@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Pryptocurrency Dashboard',
+      debugShowCheckedModeBanner: false,
       color: Color(0xFFF9F8FA),
       darkTheme: ThemeData.dark(),
       themeMode: ThemeMode.light,

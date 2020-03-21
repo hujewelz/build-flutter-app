@@ -29,7 +29,7 @@ class LeftPannel extends StatelessWidget {
       fit: StackFit.expand,
       children: <Widget>[
         Padding(
-          padding: const EdgeInsets.symmetric(vertical: 30),
+          padding: const EdgeInsets.only(top: 40, bottom: 30),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
