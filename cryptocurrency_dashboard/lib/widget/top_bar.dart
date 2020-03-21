@@ -11,7 +11,7 @@ class _TopBarState extends State<TopBar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 88.0,
+      height: 80.0,
       padding: EdgeInsets.only(right: 30.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.end,

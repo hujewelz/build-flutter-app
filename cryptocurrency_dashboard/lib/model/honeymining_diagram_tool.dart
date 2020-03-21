@@ -12,32 +12,33 @@ class HoneyminingDiagramTool {
       radius + cos(pi / 4) * radius * datas[1],
       radius - sin(pi / 4) * radius * datas[1],
     );
-    final p3 = Offset(
+    final p3 = Offset(radius, radius);
+    final p4 = Offset(
       radius + radius * datas[2],
       radius,
     );
-    final p4 = Offset(
+    final p5 = Offset(
       radius + cos(pi / 4) * radius * datas[3],
       radius + sin(pi / 4) * radius * datas[3],
     );
-    final p5 = Offset(
+    final p6 = Offset(
       radius,
       radius + radius * datas[4],
     );
-    final p6 = Offset(
+    final p7 = Offset(
       radius - cos(pi / 4) * radius * datas[5],
       radius + sin(pi / 4) * radius * datas[5],
     );
-    final p7 = Offset(
+    final p8 = Offset(
       radius - radius * datas[6],
       radius,
     );
-    final p8 = Offset(
+    final p9 = Offset(
       radius - cos(pi / 4) * radius * datas[7],
       radius - sin(pi / 4) * radius * datas[7],
     );
 
-    return [p1, p2, p3, p4, p5, p6, p7, p8];
+    return [p1, p2, p3, p4, p5, p6, p7, p8, p9];
   }
 
   static List<Offset> generatePoints({Size size}) {
@@ -55,4 +56,4 @@ class HoneyminingDiagramTool {
   }
 }
 
-final List<double> datas = [0.4, 0.9, 0.58, 0.4, 0.7, 0.66, 0.68, 0.7];
+final List<double> datas = [0.4, 0.9, 0.6, 0.4, 0.76, 0.66, 0.68, 0.7];

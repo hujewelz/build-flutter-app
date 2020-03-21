@@ -24,7 +24,7 @@ class RightPanel extends StatelessWidget {
 
   Widget _buildCard() {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(0.0, 10.0, 28.0, 30.0),
+      padding: const EdgeInsets.fromLTRB(0.0, 20.0, 28.0, 30.0),
       child: Container(
         height: 125.0,
         decoration: BoxDecoration(

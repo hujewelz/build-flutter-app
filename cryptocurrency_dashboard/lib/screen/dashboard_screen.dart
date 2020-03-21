@@ -65,7 +65,7 @@ class Dashboard extends StatelessWidget {
 
   Widget _buildBottomTitle() {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 18.0),
+      padding: const EdgeInsets.only(top: 30.0, bottom: 14.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[

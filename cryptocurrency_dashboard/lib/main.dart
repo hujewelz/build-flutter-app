@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.light,
       theme: ThemeData(
         platform: TargetPlatform.macOS,
-        primaryColor: Color(0xFFF9F8FA),
+        primaryColor: Colors.white,
         accentColor: Color(0xFF8B69D1),
         iconTheme: IconThemeData(
           color: Color(0xFFC4C4C4),
