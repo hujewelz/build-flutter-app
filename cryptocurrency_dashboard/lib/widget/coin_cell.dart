@@ -38,7 +38,7 @@ class CoinCell extends StatelessWidget {
                   height: 26.0,
                 ),
               ),
-              SizedBox(width: 8.0),
+              SizedBox(width: 10.0),
               Text(
                 coin.name,
                 style: TextStyle(

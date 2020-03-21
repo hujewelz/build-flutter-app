@@ -98,6 +98,8 @@ class HoneyMiningTextPainter extends CustomPainter {
         text: data.name,
         style: TextStyle(
           color: data.color,
+          fontSize: 11.0,
+          fontWeight: FontWeight.w600,
         ),
       ),
       textAlign: align,
