@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cryptocurrency_dashboard/widget/colors.dart';
 import 'package:cryptocurrency_dashboard/model/coin.dart';
+import 'package:flutter_svg/svg.dart';
 
 class CoinCell extends StatelessWidget {
   const CoinCell({Key key, @required this.coin}) : super(key: key);
@@ -28,14 +29,13 @@ class CoinCell extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             Row(children: <Widget>[
-              SizedBox(width: 24.0),
+              SizedBox(width: 20.0),
               ClipOval(
-                child: Image.asset(
+                child: SvgPicture.asset(
                   coin.icon,
-                  // color: coin.color,
+                  color: coin.color,
                   width: 26.0,
                   height: 26.0,
-                  fit: BoxFit.cover,
                 ),
               ),
               SizedBox(width: 8.0),

@@ -20,14 +20,14 @@ class Coin {
 final List<Coin> coins = [
   Coin(
     name: 'Bitcoin Cash (BCH)',
-    icon: 'assets/images/bitcoin.png',
+    icon: 'assets/icons/bitcoin.svg',
     date: '04.01.2020 - 30.01.2020',
     availabel: '350.501 BCH',
     color: AppColors.purple,
   ),
   Coin(
     name: 'Monero (XMR)',
-    icon: 'assets/images/bitcoin.png',
+    icon: 'assets/icons/monero.svg',
     date: '04.01.2020 - 30.01.2020',
     availabel: '78.501 XMR',
     color: AppColors.yellow,
