@@ -17,15 +17,13 @@ final List<Tweet> tweets = [
     user: User(
       name: 'Swift Language',
       account: '@SwiftLang',
-      imageUrl:
-          'https://pbs.twimg.com/profile_images/1336716675287113728/woTnm-UB_400x400.jpg',
+      imageUrl: 'https://s2.loli.net/2022/05/14/T9DH7tx86A3azsP.png',
     ),
     timeAgo: 'Apr 26',
     content:
         'The Swift Server Working Group has published their annual update, recapping the progress of the Swift on Server ecosystem in 2021 and looking forward to 2022.',
     post: LinkedPost(
-        logo:
-            'https://pbs.twimg.com/profile_images/1336716675287113728/woTnm-UB_400x400.jpg',
+        logo: 'https://s2.loli.net/2022/05/14/T9DH7tx86A3azsP.png',
         title: 'SSWG 2021 Annual Update',
         from: 'swift.org',
         content:
@@ -36,15 +34,13 @@ final List<Tweet> tweets = [
     user: User(
       name: 'Swift Language',
       account: '@SwiftLang',
-      imageUrl:
-          'https://pbs.twimg.com/profile_images/1336716675287113728/woTnm-UB_400x400.jpg',
+      imageUrl: 'https://s2.loli.net/2022/05/14/T9DH7tx86A3azsP.png',
     ),
     timeAgo: 'Apr 5',
     content:
         'My students asked me: how low does the price of Bitcoin have to go before “crypto” means cryptography again?',
     post: LinkedPost(
-        logo:
-            'https://pbs.twimg.com/profile_images/1336716675287113728/woTnm-UB_400x400.jpg',
+        logo: 'https://s2.loli.net/2022/05/14/T9DH7tx86A3azsP.png',
         title: 'Swift to participate in GSoC 2022!',
         from: 'forums.swift.org',
         content:
@@ -56,8 +52,7 @@ final List<Tweet> tweets = [
     user: User(
       name: 'Rust Language',
       account: '@rustlang',
-      imageUrl:
-          'https://pbs.twimg.com/profile_images/2392473363/v7txhrjp9pdqrkdtxxp0_400x400.png',
+      imageUrl: 'https://s2.loli.net/2022/05/14/5H4JrVSbXREfL1O.png',
     ),
     timeAgo: 'May 20,2020',
     content: 'Read this thread for information about this account!',
@@ -66,15 +61,13 @@ final List<Tweet> tweets = [
     user: User(
       name: 'Rust Language',
       account: '@rustlang',
-      imageUrl:
-          'https://pbs.twimg.com/profile_images/2392473363/v7txhrjp9pdqrkdtxxp0_400x400.png',
+      imageUrl: 'https://s2.loli.net/2022/05/14/5H4JrVSbXREfL1O.png',
     ),
     timeAgo: '11h',
     content:
         'A malicious crate was uploaded to http://crates.io, targeting GitLab CI environments. Read more on the security advisory:',
     post: LinkedPost(
-        logo:
-            'https://pbs.twimg.com/profile_images/2392473363/v7txhrjp9pdqrkdtxxp0_400x400.png',
+        logo: 'https://s2.loli.net/2022/05/14/5H4JrVSbXREfL1O.png',
         title: 'Security advisory: malicious crate rustdecimal',
         from: 'blog.rust-lang.org',
         content:
@@ -86,8 +79,7 @@ final List<Tweet> tweets = [
     user: User(
       name: 'cassie',
       account: '@porglezomp',
-      imageUrl:
-          'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1587&q=80',
+      imageUrl: 'https://s2.loli.net/2022/05/14/Atd3nF5cMJeZVBH.jpg',
     ),
     timeAgo: '4h',
     content:

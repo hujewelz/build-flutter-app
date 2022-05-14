@@ -22,7 +22,7 @@ class _SidebarState extends State<Sidebar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 220.0,
+      width: 200.0,
       height: double.infinity,
       padding: const EdgeInsets.only(left: 24.0, top: 12.0, bottom: 16.0),
       decoration: const BoxDecoration(

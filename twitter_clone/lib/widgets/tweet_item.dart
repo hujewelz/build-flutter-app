@@ -6,7 +6,7 @@ import 'package:twitter_clone/models/tweet.dart';
 import 'package:twitter_clone/widgets/tweet_toolbar.dart';
 
 class TweetItem extends StatelessWidget {
-  const TweetItem({super.key, required this.tweet});
+  TweetItem({required this.tweet}) : super(key: ObjectKey(tweet));
 
   final Tweet tweet;
 
@@ -25,10 +25,17 @@ class TweetItem extends StatelessWidget {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CircleAvatar(
-                  radius: 24.0,
-                  backgroundImage:
-                      CachedNetworkImageProvider(tweet.user.imageUrl),
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.all(Radius.circular(24.0)),
+                    border: Border.all(color: Palette.separator),
+                  ),
+                  child: CircleAvatar(
+                    radius: 24.0,
+                    backgroundColor: Colors.white,
+                    backgroundImage:
+                        CachedNetworkImageProvider(tweet.user.imageUrl),
+                  ),
                 ),
                 const SizedBox(width: 12),
                 Expanded(
@@ -114,7 +121,6 @@ class LinkCard extends StatelessWidget {
           children: [
             CachedNetworkImage(
               imageUrl: post.logo,
-              color: Colors.blue,
               width: 108,
               fit: BoxFit.cover,
             ),
