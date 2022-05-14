@@ -24,7 +24,7 @@ class _SidebarState extends State<Sidebar> {
     return Container(
       width: 220.0,
       height: double.infinity,
-      padding: const EdgeInsets.only(left: 20.0, top: 12.0, bottom: 16.0),
+      padding: const EdgeInsets.only(left: 24.0, top: 12.0, bottom: 16.0),
       decoration: const BoxDecoration(
         color: Colors.white,
         border: Border(
@@ -43,6 +43,7 @@ class _SidebarState extends State<Sidebar> {
             color: Palette.primary,
             size: 38,
           ),
+          const SizedBox(height: 10.0),
           SidebarItem(
             title: 'Home',
             icon: _index == 0 ? EvaIcons.home : EvaIcons.homeOutline,

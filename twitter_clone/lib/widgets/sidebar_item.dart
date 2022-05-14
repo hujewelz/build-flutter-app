@@ -24,7 +24,7 @@ class SidebarItem extends StatelessWidget {
       onTap: onPressed,
       child: Container(
         color: Colors.white,
-        padding: const EdgeInsets.symmetric(vertical: 10),
+        padding: const EdgeInsets.symmetric(vertical: 11),
         margin: const EdgeInsets.only(top: 8),
         child: Row(
           children: [

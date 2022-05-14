@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:twitter_clone/data/data.dart';
 
 import '../widgets/tweet_item.dart';
 
@@ -10,10 +11,10 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       body: ListView.builder(
-        itemCount: 2,
-        padding: const EdgeInsets.symmetric(vertical: 16.0),
+        padding: const EdgeInsets.only(bottom: 34.0),
+        itemCount: tweets.length,
         itemBuilder: (BuildContext context, int index) {
-          return const TweetItem();
+          return TweetItem(tweet: tweets[index]);
         },
       ),
     );

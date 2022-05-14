@@ -1,23 +1,22 @@
-class Tweet {
-  final String logo;
-  final String title;
-  final String date;
-  final String text;
-  int replay;
-  int retweet;
-  int likes;
+import 'package:twitter_clone/models/user.dart';
 
-  LinkedPost? link;
+class Tweet {
+  final User user;
+  final String timeAgo;
+  final String content;
+  int replays;
+  int retweets;
+  int likes;
+  LinkedPost? post;
 
   Tweet({
-    required this.logo,
-    required this.title,
-    required this.date,
-    required this.text,
-    this.replay = 0,
-    this.retweet = 0,
+    required this.user,
+    required this.timeAgo,
+    required this.content,
+    this.replays = 0,
+    this.retweets = 0,
     this.likes = 0,
-    this.link,
+    this.post,
   });
 }
 
@@ -26,11 +25,13 @@ class LinkedPost {
   final String title;
   final String from;
   final String content;
+  final String link;
 
-  LinkedPost(
-    this.logo,
-    this.title,
-    this.from,
-    this.content,
-  );
+  LinkedPost({
+    required this.logo,
+    required this.title,
+    required this.from,
+    required this.content,
+    required this.link,
+  });
 }

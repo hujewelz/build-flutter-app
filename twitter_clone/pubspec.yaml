@@ -27,6 +27,7 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  cached_network_image: ^3.2.0
   cupertino_icons: ^1.0.2
   desktop_window: ^0.4.0
   eva_icons_flutter: ^3.1.0
@@ -38,6 +39,13 @@ dev_dependencies:
   flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
+
+dependency_overrides:
+  cached_network_image:
+    git:
+      url: https://github.com/XuannThucc/flutter_cached_network_image.git
+      path: cached_network_image
+      ref: ff72f00f142f13d889d7549e013af91cb0b523ab
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
