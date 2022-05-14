@@ -14,7 +14,7 @@ class SidebarItem extends StatelessWidget {
   final bool isSelected;
   final VoidCallback? onPressed;
 
-  double get _fontSize => isSelected ? 17 : 15;
+  double get _fontSize => isSelected ? 17 : 16;
 
   FontWeight get _fontWeight => isSelected ? FontWeight.w600 : FontWeight.w500;
 

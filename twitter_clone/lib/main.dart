@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:twitter_clone/screens/home_screen.dart';
+import 'package:twitter_clone/config/palette.dart';
+import 'package:twitter_clone/screens/scaffold_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,6 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -23,15 +25,11 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        // textTheme: TextTheme(
-        //   titleMedium: const TextStyle(fontSize: 16),
-        //   bodyText1: const TextStyle(fontSize: 15),
-        //   bodyMedium: const TextStyle(fontSize: 14),
-        //   bodySmall: const TextStyle(fontSize: 12)
-        // ),
-        primarySwatch: Colors.blue,
+        primaryColor: Palette.primary,
+        textTheme: Typography.blackCupertino,
+        scaffoldBackgroundColor: Colors.white,
       ),
-      home: const HomeScreen(),
+      home: const ScaffoldScreen(),
     );
   }
 }

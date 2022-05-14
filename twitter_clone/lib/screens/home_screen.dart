@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:twitter_clone/components/sidebar.dart';
+
+import '../widgets/tweet_item.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -8,16 +9,12 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Row(
-        children: [
-          const Sidebar(),
-          Expanded(
-            child: Container(
-              width: double.infinity,
-              color: Colors.white,
-            ),
-          ),
-        ],
+      body: ListView.builder(
+        itemCount: 2,
+        padding: const EdgeInsets.symmetric(vertical: 16.0),
+        itemBuilder: (BuildContext context, int index) {
+          return const TweetItem();
+        },
       ),
     );
   }

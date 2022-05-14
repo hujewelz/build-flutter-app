@@ -1,6 +1,7 @@
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
-import 'package:twitter_clone/components/sidebar_item.dart';
+import 'package:twitter_clone/widgets/sidebar_item.dart';
+import 'package:twitter_clone/config/palette.dart';
 
 class Sidebar extends StatefulWidget {
   const Sidebar({super.key});
@@ -24,11 +25,11 @@ class _SidebarState extends State<Sidebar> {
       width: 220.0,
       height: double.infinity,
       padding: const EdgeInsets.only(left: 20.0, top: 12.0, bottom: 16.0),
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: Colors.white,
         border: Border(
           right: BorderSide(
-            color: Colors.black.withAlpha(20),
+            color: Palette.separator,
             width: 1.0,
           ),
         ),
@@ -39,7 +40,7 @@ class _SidebarState extends State<Sidebar> {
         children: [
           const Icon(
             EvaIcons.twitter,
-            color: Colors.blue,
+            color: Palette.primary,
             size: 38,
           ),
           SidebarItem(
