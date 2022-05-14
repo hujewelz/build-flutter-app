@@ -1,8 +1,15 @@
+import 'dart:io';
+import 'package:desktop_window/desktop_window.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:twitter_clone/config/palette.dart';
 import 'package:twitter_clone/screens/scaffold_screen.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  if (!kIsWeb && (Platform.isMacOS || Platform.isLinux || Platform.isWindows)) {
+    await DesktopWindow.setMinWindowSize(const Size(800.0, 980.0));
+  }
   runApp(const MyApp());
 }
 
