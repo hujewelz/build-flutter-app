@@ -44,7 +44,11 @@ class TweetItem extends StatelessWidget {
               ],
             ),
           ),
-          const TweetToolbar(replay: 23, retweet: 30, likes: 165),
+          TweetToolbar(
+            replay: tweet.replays,
+            retweet: tweet.retweets,
+            likes: tweet.likes,
+          ),
         ],
       ),
     );

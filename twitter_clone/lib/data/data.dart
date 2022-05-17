@@ -12,6 +12,9 @@ final List<Tweet> tweets = [
     timeAgo: '12h',
     content:
         '😍Be in the know after GoogleIO\n\n🚀Flutter 3\n✅The Flutter Casual Games Toolkit\n🔥@Firebase Crashlytics',
+    replays: 100,
+    retweets: 45,
+    likes: 34,
   ),
   Tweet(
     user: User(
@@ -20,6 +23,9 @@ final List<Tweet> tweets = [
       imageUrl: 'https://s2.loli.net/2022/05/14/T9DH7tx86A3azsP.png',
     ),
     timeAgo: 'Apr 26',
+    replays: 333,
+    retweets: 33,
+    likes: 67,
     content:
         'The Swift Server Working Group has published their annual update, recapping the progress of the Swift on Server ecosystem in 2021 and looking forward to 2022.',
     post: LinkedPost(
@@ -37,6 +43,9 @@ final List<Tweet> tweets = [
       imageUrl: 'https://s2.loli.net/2022/05/14/T9DH7tx86A3azsP.png',
     ),
     timeAgo: 'Apr 5',
+    replays: 245,
+    retweets: 56,
+    likes: 33,
     content:
         'My students asked me: how low does the price of Bitcoin have to go before “crypto” means cryptography again?',
     post: LinkedPost(
@@ -64,6 +73,9 @@ final List<Tweet> tweets = [
       imageUrl: 'https://s2.loli.net/2022/05/14/5H4JrVSbXREfL1O.png',
     ),
     timeAgo: '11h',
+    replays: 157,
+    retweets: 345,
+    likes: 67,
     content:
         'A malicious crate was uploaded to http://crates.io, targeting GitLab CI environments. Read more on the security advisory:',
     post: LinkedPost(
@@ -82,6 +94,9 @@ final List<Tweet> tweets = [
       imageUrl: 'https://s2.loli.net/2022/05/14/Atd3nF5cMJeZVBH.jpg',
     ),
     timeAgo: '4h',
+    replays: 123,
+    retweets: 56,
+    likes: 100,
     content:
         "😩 learning today that Firefox has had MathML support for 11 years (16 years with an older syntax), Safari has had it for 6 years (14 years with bad handling for edge cases), and Chrome still doesn't support it",
   ),

@@ -17,9 +17,12 @@ class TweetToolbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 12.0),
+      padding: const EdgeInsets.symmetric(
+        horizontal: 40.0,
+        vertical: 4.0,
+      ),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           ToolbarButton(iconData: EvaIcons.messageCircleOutline, value: replay),
           ToolbarButton(iconData: EvaIcons.flip2Outline, value: retweet),
@@ -47,22 +50,27 @@ class ToolbarButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onPressed,
-      child: Row(
-        children: [
-          Icon(
-            iconData,
-            color: Palette.secondaryText,
-            size: 18.0,
-          ),
-          const SizedBox(width: 8.0),
-          value > 0
-              ? Text(
-                  '$value',
-                  style: const TextStyle(
-                      color: Palette.secondaryText, fontSize: 13.0),
-                )
-              : const SizedBox.shrink(),
-        ],
+      child: SizedBox(
+        width: 80.0,
+        height: 40.0,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              iconData,
+              color: Palette.secondaryText,
+              size: 18.0,
+            ),
+            const SizedBox(width: 8.0),
+            value > 0
+                ? Text(
+                    '$value',
+                    style: const TextStyle(
+                        color: Palette.secondaryText, fontSize: 13.0),
+                  )
+                : const SizedBox.shrink(),
+          ],
+        ),
       ),
     );
   }
