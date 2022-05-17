@@ -25,6 +25,7 @@ class NavBar extends StatelessWidget {
         color: Theme.of(context).backgroundColor,
         padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0),
         child: Row(
+          mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             _NavBarLeadingWidget(leading: leading),

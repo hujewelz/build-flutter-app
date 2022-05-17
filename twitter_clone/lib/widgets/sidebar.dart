@@ -1,10 +1,14 @@
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:twitter_clone/data/data.dart';
 import 'package:twitter_clone/widgets/sidebar_item.dart';
 import 'package:twitter_clone/config/palette.dart';
+import 'package:twitter_clone/widgets/tweet_account_widget.dart';
 
 class Sidebar extends StatefulWidget {
-  const Sidebar({super.key});
+  const Sidebar({super.key, required this.onTap});
+
+  final void Function(int index) onTap;
 
   @override
   State<Sidebar> createState() => _SidebarState();
@@ -14,6 +18,7 @@ class _SidebarState extends State<Sidebar> {
   var _index = 0;
 
   void tapSidebarItem(int index) {
+    widget.onTap(index);
     setState(() {
       _index = index;
     });
@@ -81,33 +86,7 @@ class _SidebarState extends State<Sidebar> {
             onPressed: () => tapSidebarItem(5),
           ),
           const Expanded(child: SizedBox.shrink()),
-          Row(
-            children: [
-              const CircleAvatar(
-                radius: 22,
-                backgroundImage: AssetImage('assets/cat.jpeg'),
-              ),
-              const SizedBox(width: 12),
-              Column(
-                children: const [
-                  Text(
-                    'huluoboboo',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                  Text(
-                    '@huluoboboo',
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.black54,
-                    ),
-                  ),
-                ],
-              )
-            ],
-          )
+          TwitterAccountWidget(user: currenUser),
         ],
       ),
     );

@@ -18,7 +18,7 @@ class HomeScreen extends StatelessWidget {
           style: Theme.of(context).textTheme.headline1,
         ),
         trailing: IconButton(
-            onPressed: () {}, icon: const Icon(EvaIcons.bulbOutline)),
+            onPressed: () {}, icon: const Icon(EvaIcons.paperPlaneOutline)),
       ),
       body: ListView.builder(
         padding: const EdgeInsets.only(top: 50.0, bottom: 34.0),

@@ -1,6 +1,13 @@
 import 'package:twitter_clone/models/tweet.dart';
 import 'package:twitter_clone/models/user.dart';
 
+final currenUser = User(
+  name: 'huluoboboo',
+  account: '@huluobobo',
+  imageUrl:
+      'https://img0.baidu.com/it/u=1487124926,3969243041&fm=253&fmt=auto&app=120&f=JPEG?w=400&h=400',
+);
+
 final List<Tweet> tweets = [
   Tweet(
     user: User(

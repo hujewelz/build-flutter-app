@@ -15,9 +15,15 @@ class CustomScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
+        fit: StackFit.expand,
         children: [
           body ?? const SizedBox.shrink(),
-          navBar ?? const SizedBox.shrink(),
+          Positioned(
+            left: 0,
+            right: 0,
+            top: 0,
+            child: navBar ?? const SizedBox.shrink(),
+          ),
         ],
       ),
     );
