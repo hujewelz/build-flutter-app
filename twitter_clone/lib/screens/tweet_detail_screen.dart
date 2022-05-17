@@ -87,7 +87,7 @@ class TweetDetailScreen extends StatelessWidget {
           'Replys:',
           style: TextStyle(fontSize: 17.0, fontWeight: FontWeight.bold),
         ),
-        ...tweets.map((e) => TweetItem(tweet: e)).toList()
+        ...replays.map((e) => TweetItem(tweet: e)).toList()
       ],
     );
   }

@@ -115,7 +115,6 @@ class LinkCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        print("open link: ${post.link}");
         launchUrlString(post.link);
       },
       child: Container(

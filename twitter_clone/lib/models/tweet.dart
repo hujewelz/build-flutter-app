@@ -4,10 +4,10 @@ class Tweet {
   final User user;
   final String timeAgo;
   final String content;
-  int replays;
-  int retweets;
-  int likes;
-  LinkedPost? post;
+  final int replays;
+  final int retweets;
+  final int likes;
+  final LinkedPost? post;
 
   Tweet({
     required this.user,
@@ -33,5 +33,16 @@ class LinkedPost {
     required this.from,
     required this.content,
     required this.link,
+  });
+}
+
+class TweetDetail extends Tweet {
+  final List<Tweet> replayList;
+
+  TweetDetail({
+    required super.user,
+    required super.timeAgo,
+    required super.content,
+    this.replayList = const <Tweet>[],
   });
 }

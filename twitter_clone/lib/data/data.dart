@@ -101,3 +101,64 @@ final List<Tweet> tweets = [
         "😩 learning today that Firefox has had MathML support for 11 years (16 years with an older syntax), Safari has had it for 6 years (14 years with bad handling for edge cases), and Chrome still doesn't support it",
   ),
 ];
+
+final List<Tweet> replays = [
+  Tweet(
+    user: User(
+      name: 'Dimasya',
+      account: '@satanworker',
+      imageUrl:
+          'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg2.woyaogexing.com%2F2019%2F02%2F13%2F02a07217f4d842e48bd30e2700007434%21400x400.jpeg&refer=http%3A%2F%2Fimg2.woyaogexing.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1655361438&t=20b0d95666324dd208d85b3021e86e67',
+    ),
+    timeAgo: 'Apr 26',
+    content:
+        'Now when swift has nice concurrency system, the only thing missing for me is ORM. Curious is it possible to implement bindings for @prisma similar to go package',
+    replays: 10,
+    retweets: 4,
+    likes: 3,
+  ),
+  Tweet(
+    user: User(
+      name: 'Tim Condon',
+      account: '@OxTim',
+      imageUrl:
+          'https://img2.baidu.com/it/u=3076855988,592275785&fm=253&fmt=auto&app=120&f=JPEG?w=400&h=400',
+    ),
+    timeAgo: 'Apr 26',
+    content: 'Have you had a look at Fluent from Vapor?',
+    replays: 1,
+    likes: 1,
+  ),
+  Tweet(
+    user: User(
+      name: 'Dorian',
+      account: '@MrSkwiggs',
+      imageUrl:
+          'https://img1.baidu.com/it/u=1149359842,3831784241&fm=253&fmt=auto&app=138&f=JPEG?w=400&h=400',
+    ),
+    timeAgo: 'Apr 28',
+    content:
+        "Sweet stuff! Although it seems like the 'pitch a draft to the SSWG' link is not really doing much 🤔",
+  ),
+  Tweet(
+    user: User(
+      name: 'Branko Grbic',
+      account: '@bbgrbic',
+      imageUrl:
+          'https://img1.baidu.com/it/u=1755419550,3333940379&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500',
+    ),
+    timeAgo: 'Apr 30',
+    content:
+        "it's nice to have this feature in structured  concurrency, what we already use in reactive combine 😀",
+  ),
+  Tweet(
+    user: User(
+      name: 'mortenditlevsen',
+      account: '@mortenditlevsen',
+      imageUrl:
+          'https://img2.baidu.com/it/u=3350630607,1397825411&fm=253&fmt=auto&app=138&f=JPEG?w=400&h=400',
+    ),
+    timeAgo: 'Apr 30',
+    content: "This is awesome!!!",
+  ),
+];
