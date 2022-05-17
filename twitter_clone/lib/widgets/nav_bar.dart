@@ -8,11 +8,13 @@ class NavBar extends StatelessWidget {
     this.leading,
     this.title,
     this.trailing,
+    this.child,
   });
 
   final Widget? leading;
   final Widget? title;
   final Widget? trailing;
+  final Widget? child;
 
   @override
   Widget build(BuildContext context) {
@@ -20,19 +22,25 @@ class NavBar extends StatelessWidget {
       sigmaX: 5.0,
       sigmaY: 5.0,
       opacity: 0.75,
-      child: Container(
-        height: 50.0,
-        color: Theme.of(context).backgroundColor,
-        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0),
-        child: Row(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            _NavBarLeadingWidget(leading: leading),
-            title ?? const SizedBox.shrink(),
-            trailing ?? const SizedBox.shrink(),
-          ],
-        ),
+      child: Column(
+        children: [
+          Container(
+            height: 50.0,
+            color: Theme.of(context).backgroundColor,
+            padding:
+                const EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0),
+            child: Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                _NavBarLeadingWidget(leading: leading),
+                title ?? const SizedBox.shrink(),
+                trailing ?? const SizedBox.shrink(),
+              ],
+            ),
+          ),
+          child ?? const SizedBox.shrink(),
+        ],
       ),
     );
   }

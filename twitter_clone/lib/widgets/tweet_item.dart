@@ -22,7 +22,7 @@ class TweetItem extends StatelessWidget {
       child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.only(top: 16.0, left: 16.0, right: 16.0),
+            padding: const EdgeInsets.only(top: 16.0, left: 16.0, right: 20.0),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -40,7 +40,7 @@ class TweetItem extends StatelessWidget {
                 ),
                 const SizedBox(width: 12),
                 Expanded(
-                  child: _buildRightContent(),
+                  child: _buildRight(),
                 ),
               ],
             ),
@@ -86,21 +86,44 @@ class TweetItem extends StatelessWidget {
     );
   }
 
-  Widget _buildRightContent() {
+  List<Widget> _buildTweetContents() {
+    List<Widget> widgets = [
+      const SizedBox(height: 4.0),
+      Text(
+        tweet.content,
+        style: Style.bodyText,
+      ),
+    ];
+    if (tweet.post != null) {
+      widgets
+          .addAll([const SizedBox(height: 12.0), LinkCard(post: tweet.post!)]);
+    }
+    if (tweet.imageContent != null) {
+      widgets.addAll([
+        const SizedBox(height: 12.0),
+        AspectRatio(
+          aspectRatio: 16.0 / 9.0,
+          child: ClipRRect(
+            borderRadius: const BorderRadius.all(Radius.circular(16.0)),
+            child: CachedNetworkImage(
+              fit: BoxFit.cover,
+              imageUrl: tweet.imageContent!,
+              height: 300.0,
+            ),
+          ),
+        ),
+      ]);
+    }
+    return widgets;
+  }
+
+  Widget _buildRight() {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         _buildTitle(),
-        const SizedBox(height: 4.0),
-        Text(
-          tweet.content,
-          style: Style.bodyText,
-        ),
-        const SizedBox(height: 12.0),
-        tweet.post != null
-            ? LinkCard(post: tweet.post!)
-            : const SizedBox.shrink(),
+        ..._buildTweetContents(),
       ],
     );
   }

@@ -1,9 +1,11 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:twitter_clone/config/palette.dart';
 import 'package:twitter_clone/data/data.dart';
 import 'package:twitter_clone/models/tweet.dart';
 import 'package:twitter_clone/widgets/tweet_account_widget.dart';
 import 'package:twitter_clone/widgets/tweet_item.dart';
+import '../config/style.dart';
 import '../widgets/custom_scaffold.dart';
 import '../widgets/nav_bar.dart';
 import '../widgets/tweet_toolbar.dart';
@@ -30,52 +32,78 @@ class TweetDetailScreen extends StatelessWidget {
           right: 16.0,
         ),
         children: [
-          _buildTweetContent(),
+          _buildContent(),
+          _buildReply(),
         ],
       ),
     );
   }
 
-  Widget _buildTweetContent() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        TwitterAccountWidget(user: tweet.user),
-        const SizedBox(height: 8.0),
-        Text(
-          tweet.content,
-          style: const TextStyle(fontSize: 17.0),
-        ),
-        const SizedBox(height: 16.0),
-        tweet.post != null
-            ? LinkCard(post: tweet.post!)
-            : const SizedBox.shrink(),
-        const SizedBox(height: 16.0),
-        Text(
-          '${tweet.timeAgo} • Twitterrific for iOS',
-          style: const TextStyle(
-            color: Palette.secondaryText,
-            fontSize: 15.0,
-          ),
-        ),
-        Container(
-          margin: const EdgeInsets.symmetric(vertical: 16.0),
-          decoration: const BoxDecoration(
-            border: Border.symmetric(
-              horizontal: BorderSide(
-                width: 1,
-                color: Palette.separator,
-              ),
+  List<Widget> _buildTweetContents() {
+    List<Widget> widgets = [
+      const SizedBox(height: 8.0),
+      Text(
+        tweet.content,
+        style: Style.bodyText,
+      ),
+    ];
+    if (tweet.post != null) {
+      widgets
+          .addAll([const SizedBox(height: 12.0), LinkCard(post: tweet.post!)]);
+    }
+    if (tweet.imageContent != null) {
+      widgets.addAll([
+        const SizedBox(height: 12.0),
+        AspectRatio(
+          aspectRatio: 16.0 / 9.0,
+          child: ClipRRect(
+            borderRadius: const BorderRadius.all(Radius.circular(16.0)),
+            child: CachedNetworkImage(
+              fit: BoxFit.cover,
+              imageUrl: tweet.imageContent!,
+              height: 300.0,
             ),
           ),
-          child: TweetToolbar(
-            replay: tweet.replays,
-            retweet: tweet.retweets,
-            likes: tweet.likes,
-          ),
         ),
-        _buildReply(),
-      ],
+      ]);
+    }
+    widgets.add(const SizedBox(height: 12.0));
+    widgets.add(Text(
+      '${tweet.timeAgo} • Twitterrific for iOS',
+      style: const TextStyle(
+        color: Palette.secondaryText,
+        fontSize: 15.0,
+      ),
+    ));
+    return widgets;
+  }
+
+  Widget _buildContent() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          TwitterAccountWidget(user: tweet.user),
+          ..._buildTweetContents(),
+          Container(
+            margin: const EdgeInsets.symmetric(vertical: 16.0),
+            decoration: const BoxDecoration(
+              border: Border.symmetric(
+                horizontal: BorderSide(
+                  width: 1,
+                  color: Palette.separator,
+                ),
+              ),
+            ),
+            child: TweetToolbar(
+              replay: tweet.replays,
+              retweet: tweet.retweets,
+              likes: tweet.likes,
+            ),
+          ),
+        ],
+      ),
     );
   }
 

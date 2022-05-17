@@ -1,4 +1,6 @@
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:twitter_clone/widgets/top_menu.dart';
 
 import '../widgets/custom_scaffold.dart';
 import '../widgets/nav_bar.dart';
@@ -14,8 +16,22 @@ class ExploreScreen extends StatelessWidget {
           'Explore',
           style: Theme.of(context).textTheme.headline1,
         ),
+        trailing: IconButton(
+            onPressed: () {}, icon: const Icon(EvaIcons.settings2Outline)),
+        child: const TopMenu(
+          titles: [
+            'For your',
+            'Trending',
+            'COVID-19',
+            'News',
+            'Sports',
+            'Entertainment'
+          ],
+        ),
       ),
-      body: const Center(child: Text('Explore')),
+      body: ListView(
+        padding: const EdgeInsets.only(top: 100.0),
+      ),
     );
   }
 }

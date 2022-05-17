@@ -25,6 +25,20 @@ final List<Tweet> tweets = [
   ),
   Tweet(
     user: User(
+      name: 'Flutter',
+      account: '@FlutterDev',
+      imageUrl:
+          'https://docs.flutter.dev/assets/images/shared/brand/flutter/icon/64.png',
+    ),
+    timeAgo: 'May 13',
+    content: '🥳💙✨',
+    imageContent: 'https://s2.loli.net/2022/05/17/o6RzN8c4HT7JPlf.jpg',
+    replays: 3,
+    retweets: 6,
+    likes: 48,
+  ),
+  Tweet(
+    user: User(
       name: 'Swift Language',
       account: '@SwiftLang',
       imageUrl: 'https://s2.loli.net/2022/05/14/T9DH7tx86A3azsP.png',

@@ -4,6 +4,7 @@ class Tweet {
   final User user;
   final String timeAgo;
   final String content;
+  final String? imageContent;
   final int replays;
   final int retweets;
   final int likes;
@@ -13,6 +14,7 @@ class Tweet {
     required this.user,
     required this.timeAgo,
     required this.content,
+    this.imageContent,
     this.replays = 0,
     this.retweets = 0,
     this.likes = 0,
