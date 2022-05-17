@@ -1,7 +1,7 @@
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:twitter_clone/widgets/searchbar.dart';
 import 'package:twitter_clone/widgets/top_menu.dart';
-
 import '../widgets/custom_scaffold.dart';
 import '../widgets/nav_bar.dart';
 
@@ -12,10 +12,7 @@ class ExploreScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomScaffold(
       navBar: NavBar(
-        leading: Text(
-          'Explore',
-          style: Theme.of(context).textTheme.headline1,
-        ),
+        leading: const SearchBar(),
         trailing: IconButton(
             onPressed: () {}, icon: const Icon(EvaIcons.settings2Outline)),
         child: const TopMenu(

@@ -24,6 +24,13 @@ class _TopMenuState extends State<TopMenu> {
     }
   }
 
+  double offsetX() {
+    if (_selectedTitle == null) return 0;
+    int index = widget.titles.indexOf(_selectedTitle!);
+    if (index == -1) return 0;
+    return index * 80;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -33,6 +40,14 @@ class _TopMenuState extends State<TopMenu> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: widget.titles.map(_buildMenuItem).toList(),
         ),
+        Transform.translate(
+          offset: Offset(offsetX(), 47),
+          child: Container(
+            color: Palette.primary,
+            width: 80.0,
+            height: 3.0,
+          ),
+        )
       ],
     );
   }
