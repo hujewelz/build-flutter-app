@@ -4,6 +4,7 @@ import 'package:twitter_clone/config/palette.dart';
 import 'package:twitter_clone/config/style.dart';
 import 'package:twitter_clone/models/tweet.dart';
 import 'package:twitter_clone/widgets/tweet_toolbar.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class TweetItem extends StatelessWidget {
   TweetItem({required this.tweet}) : super(key: ObjectKey(tweet));
@@ -112,64 +113,70 @@ class LinkCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 110.0,
-      decoration: BoxDecoration(
-        border: Border.all(color: Palette.separator),
-        borderRadius: const BorderRadius.all(Radius.circular(15.0)),
-      ),
-      child: ClipRRect(
-        borderRadius: const BorderRadius.all(Radius.circular(15.0)),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            CachedNetworkImage(
-              imageUrl: post.logo,
-              width: 108,
-              fit: BoxFit.cover,
-            ),
-            const SizedBox(
-              height: 110.0,
-              child: VerticalDivider(
-                width: 1.0,
-                color: Palette.separator,
+    return GestureDetector(
+      onTap: () {
+        print("open link: ${post.link}");
+        launchUrlString(post.link);
+      },
+      child: Container(
+        height: 110.0,
+        decoration: BoxDecoration(
+          border: Border.all(color: Palette.separator),
+          borderRadius: const BorderRadius.all(Radius.circular(15.0)),
+        ),
+        child: ClipRRect(
+          borderRadius: const BorderRadius.all(Radius.circular(15.0)),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              CachedNetworkImage(
+                imageUrl: post.logo,
+                width: 108,
+                fit: BoxFit.cover,
               ),
-            ),
-            const SizedBox(width: 8.0),
-            Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    post.from,
-                    style: const TextStyle(
-                      fontSize: 14.0,
-                      color: Palette.secondaryText,
-                    ),
-                  ),
-                  const SizedBox(height: 4.0),
-                  Text(
-                    post.title,
-                    style: const TextStyle(
-                      fontSize: 14.0,
-                      color: Palette.primaryText,
-                    ),
-                  ),
-                  const SizedBox(height: 4.0),
-                  Text(
-                    post.content,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(
-                      fontSize: 14.0,
-                      color: Palette.secondaryText,
-                    ),
-                  ),
-                ],
+              const SizedBox(
+                height: 110.0,
+                child: VerticalDivider(
+                  width: 1.0,
+                  color: Palette.separator,
+                ),
               ),
-            ),
-          ],
+              const SizedBox(width: 8.0),
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      post.from,
+                      style: const TextStyle(
+                        fontSize: 14.0,
+                        color: Palette.secondaryText,
+                      ),
+                    ),
+                    const SizedBox(height: 4.0),
+                    Text(
+                      post.title,
+                      style: const TextStyle(
+                        fontSize: 14.0,
+                        color: Palette.primaryText,
+                      ),
+                    ),
+                    const SizedBox(height: 4.0),
+                    Text(
+                      post.content,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(
+                        fontSize: 14.0,
+                        color: Palette.secondaryText,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
